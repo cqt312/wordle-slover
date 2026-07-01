@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Wordle Solver</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>WORDLE&nbsp;SOLVER</h1>
+    <p class="subtitle">
+      Word length:
+      <select id="wordlen-select" class="wordlen-select" aria-label="Word length">
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5" selected>5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
+      &nbsp;— Type a guess, click tiles to set colors, then Submit.
+    </p>
+  </header>
+
+  <main class="layout">
+    <section class="board-panel">
+      <div id="board" class="board" aria-label="Wordle board"></div>
+
+      <div class="controls">
+        <button id="submit-btn" class="btn primary">Submit</button>
+        <button id="reset-btn" class="btn ghost">Reset</button>
+      </div>
+
+      <p class="legend">
+        Click a tile to cycle:
+        <span class="chip white">white</span> →
+        <span class="chip gray">gray</span> →
+        <span class="chip yellow">yellow</span> →
+        <span class="chip green">green</span>
+      </p>
+      <p id="message" class="message" role="status"></p>
+
+      <div id="keyboard" class="keyboard" aria-label="On-screen keyboard"></div>
+    </section>
+
+    <aside class="results-panel">
+      <div class="count-card">
+        <span class="count-label">Candidates</span>
+        <span id="count" class="count-value">—</span>
+      </div>
+
+      <div class="results-block">
+        <h2>Top 5</h2>
+        <ol id="top-list" class="top-list"></ol>
+      </div>
+
+      <div class="results-block grow">
+        <h2>All candidates</h2>
+        <ul id="all-list" class="all-list"></ul>
+      </div>
+    </aside>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
